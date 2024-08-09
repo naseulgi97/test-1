@@ -26,7 +26,7 @@ pipeline {
             secret: 
               secretName: docker-hub-credential 
               items: 
-                - key: .dockerconfigjson 
+              - key: .dockerconfigjson 
                 path: config.json 
         '''
     } 

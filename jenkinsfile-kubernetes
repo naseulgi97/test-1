@@ -60,7 +60,7 @@ pipeline {
         container('kaniko') { 
           sh 
 'executor --context=dir://$WORKSPACE --destination=
- <IMAGE>:$BUILD_NUMBER --destination=<IMAGE>:latest' 
+ naseul3/test:$BUILD_NUMBER --destination=naseul3/test:latest' 
         } 
       } 
     } 

@@ -42,25 +42,21 @@ pipeline {
     stage('Build') { 
       steps { 
         container('maven') { 
-          sh 
-'mvn clean package -DskipTests=true' 
+          sh 'mvn clean package -DskipTests=true' 
         } 
       } 
     } 
     stage('Test') { 
       steps { 
         container('maven') { 
-          sh 
-'mvn test' 
+          sh 'mvn test' 
         } 
       } 
     } 
     stage('Build & Tag & Push Docker Image') { 
       steps { 
         container('kaniko') { 
-          sh 
-'executor --context=dir://$WORKSPACE --destination=
- naseul3/test:$BUILD_NUMBER --destination=naseul3/test:latest' 
+          sh 'executor --context=dir://$WORKSPACE --destination=naseul3/test:$BUILD_NUMBER --destination=naseul3/test:latest' 
         } 
       } 
     } 
